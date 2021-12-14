@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "email": "admin",
+      "password": "admin@12",
+      "id": 3,
+      "skills": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "candidates": [
+        {
+          "fname": "1"
+        },
+        {
+          "fname": "2"
+        },
+        {
+          "fname": "3"
+        },
+        {
+          "fname": "4"
+        }
+      ]
+    }
+  ]
+}

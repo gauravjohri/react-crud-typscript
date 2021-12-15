@@ -4,7 +4,7 @@
       "username": "sd",
       "email": "df",
       "password": "df",
-      "image": "",
+      "image": "AADHAR.pdf",
       "id": 1,
       "skills": [
         "1",
@@ -14,10 +14,19 @@
       ],
       "candidates": [
         {
-          "fname": "sdsdssdssds"
+          "fname": "Sohan",
+          "lname": "Parsad",
+          "gender": "Male"
         },
         {
-          "fname": "wewewe"
+          "fname": "Rohan",
+          "lname": "Sharma",
+          "gender": "Female"
+        },
+        {
+          "fname": "dsds",
+          "lname": "sds",
+          "gender": "Other"
         }
       ]
     }

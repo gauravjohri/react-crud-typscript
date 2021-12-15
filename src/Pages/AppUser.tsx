@@ -9,7 +9,7 @@ export const AppUser = () => {
     const [addUser, setAddUser] = useState({ username: "", email: "", password: "", image: "" });
     const [dialog, setDialog] = useState<boolean>(false);
     const [dialogAdd, setDialogAdd] = useState<boolean>(false);
-    const [addMore, setAddMore] = useState([{ fname: "" }])
+    const [addMore, setAddMore] = useState([{ fname: "", lname: "", gender: "" }])
     const getUserList = async () => {
         let userData: any = await request(`/users`);
         await setUserList(userData);
@@ -25,13 +25,13 @@ export const AppUser = () => {
     const handleAddMoreChange = (index: number, event: any) => {
         const { name, value } = event.target;
         const values: any = [...addMore];
-        values[index].fname = value;
+        values[index][name] = value;
         setAddMore(values);
         setEditUser({ ...editUser, candidates: values });
     }
 
     const handleAddMore = () => {
-        setAddMore([...addMore, { fname: "" }]);
+        setAddMore([...addMore, { fname: "", lname: "", gender: "" }]);
     }
     const handleRemoveAddMore = (index: number) => {
         const values = [...addMore];
@@ -115,7 +115,7 @@ export const AppUser = () => {
                             <td>{user.password}</td>
                             <td>{user.skills}</td>
                             <td>{user.candidates.map((candidate: any, index: number) => (
-                                <p key={index}>{candidate.fname}</p>
+                                <p key={index}>{candidate.fname} {candidate.lname}</p>
                             ))}</td>
                             <td>
                                 <Button onClick={() => getUSer(user.id)}>Edit</Button>
@@ -140,9 +140,18 @@ export const AppUser = () => {
                         </select>
                         <TextField type={`file`} name="image" onChange={handleFileChange} /><br />
                         <button type="button" onClick={handleAddMore}>Add More</button>
+                        <Typography variant="h5" component={`div`}>Passengers</Typography>
                         {addMore.map((element: any, index: number) => (
                             <div key={index}>
+                                <span>{index + 1}.) </span>
                                 <input type="text" name="fname" value={element.fname} onChange={(e) => handleAddMoreChange(index, e)} />
+                                <input type="text" name="lname" value={element?.lname} onChange={(e) => handleAddMoreChange(index, e)} />
+                                <select name="gender" value={element?.gender} onChange={(e) => handleAddMoreChange(index, e)}>
+                                    <option value=""></option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select><br />
                                 {index > 0 && <button type="button" onClick={() => handleRemoveAddMore(index)}>Remove</button>}
                             </div>
                         ))}

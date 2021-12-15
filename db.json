@@ -1,10 +1,11 @@
 {
   "users": [
     {
-      "username": "admin",
-      "email": "admin",
-      "password": "admin@12",
-      "id": 3,
+      "username": "sd",
+      "email": "df",
+      "password": "df",
+      "image": "",
+      "id": 1,
       "skills": [
         "1",
         "2",
@@ -13,16 +14,10 @@
       ],
       "candidates": [
         {
-          "fname": "1"
+          "fname": "sdsdssdssds"
         },
         {
-          "fname": "2"
-        },
-        {
-          "fname": "3"
-        },
-        {
-          "fname": "4"
+          "fname": "wewewe"
         }
       ]
     }

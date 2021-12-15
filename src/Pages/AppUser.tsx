@@ -16,7 +16,8 @@ export const AppUser = () => {
     }
 
     const getUSer = async (id: number) => {
-        let user = await request(`/users/${id}`);
+        let user: any = await request(`/users/${id}`);
+        await setAddMore(user.candidates);
         await setDialog(true);
         await setEditUser(user);
     }
@@ -26,16 +27,17 @@ export const AppUser = () => {
         const values: any = [...addMore];
         values[index].fname = value;
         setAddMore(values);
-        setEditUser({ ...editUser, candidates: values })
+        setEditUser({ ...editUser, candidates: values });
     }
 
-    const handleAddMore = (event: any) => {
+    const handleAddMore = () => {
         setAddMore([...addMore, { fname: "" }]);
     }
     const handleRemoveAddMore = (index: number) => {
         const values = [...addMore];
         values.splice(index, 1);
         setAddMore(values);
+        setEditUser({ ...editUser, candidates: values });
     }
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -137,15 +139,10 @@ export const AppUser = () => {
                             <option>4</option>
                         </select>
                         <TextField type={`file`} name="image" onChange={handleFileChange} /><br />
-                        {editUser.candidates.map((elements: any, index1: number) => (
-                            <div key={index1}> <input type="text" value={elements.fname} name="fname" onChange={(e) => handleAddMoreChange(index1, e)} />
-                                <button type="button" onClick={() => handleRemoveAddMore(index1)}>Remove</button>
-                            </div>
-                        ))}
                         <button type="button" onClick={handleAddMore}>Add More</button>
-
                         {addMore.map((element: any, index: number) => (
-                            <div key={index}> <input type="text" name="fname" onChange={(e) => handleAddMoreChange(index, e)} />
+                            <div key={index}>
+                                <input type="text" name="fname" value={element.fname} onChange={(e) => handleAddMoreChange(index, e)} />
                                 {index > 0 && <button type="button" onClick={() => handleRemoveAddMore(index)}>Remove</button>}
                             </div>
                         ))}

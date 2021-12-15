@@ -17,7 +17,9 @@ export const AppUser = () => {
 
     const getUSer = async (id: number) => {
         let user: any = await request(`/users/${id}`);
-        await setAddMore(user.candidates);
+        if (Object(user).hasOwnProperty('candidates') && user.candidates.length > 0) {
+            await setAddMore(user.candidates);
+        }
         await setDialog(true);
         await setEditUser(user);
     }
@@ -51,7 +53,6 @@ export const AppUser = () => {
     }
 
     const handleEditUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(addMore);
         const { name, value } = event.target;
         setEditUser({ ...editUser, [name]: value });
     }
@@ -114,7 +115,7 @@ export const AppUser = () => {
                             <td>{user.email}</td>
                             <td>{user.password}</td>
                             <td>{user.skills}</td>
-                            <td>{user.candidates.map((candidate: any, index: number) => (
+                            <td>{Object(user).hasOwnProperty('candidates') && user.candidates.map((candidate: any, index: number) => (
                                 <p key={index}>{candidate.fname} {candidate.lname}</p>
                             ))}</td>
                             <td>
@@ -144,7 +145,7 @@ export const AppUser = () => {
                         {addMore.map((element: any, index: number) => (
                             <div key={index}>
                                 <span>{index + 1}.) </span>
-                                <input type="text" name="fname" value={element.fname} onChange={(e) => handleAddMoreChange(index, e)} />
+                                <input type="text" name="fname" value={element?.fname} onChange={(e) => handleAddMoreChange(index, e)} />
                                 <input type="text" name="lname" value={element?.lname} onChange={(e) => handleAddMoreChange(index, e)} />
                                 <select name="gender" value={element?.gender} onChange={(e) => handleAddMoreChange(index, e)}>
                                     <option value=""></option>
@@ -173,7 +174,7 @@ export const AppUser = () => {
                         <TextField type={`file`} name="image" />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={() => setDialog(false)}>Cancel</Button>
+                        <Button onClick={() => setDialogAdd(false)}>Cancel</Button>
                         <Button type="submit">Save</Button>
                     </DialogActions>
                 </form>

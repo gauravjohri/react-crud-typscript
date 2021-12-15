@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "username": "sd",
-      "email": "df",
-      "password": "df",
+      "username": "admin",
+      "email": "admin",
+      "password": "admin@12",
       "image": "AADHAR.pdf",
       "id": 1,
       "skills": [
@@ -26,7 +26,62 @@
         {
           "fname": "dsds",
           "lname": "sds",
-          "gender": "Other"
+          "gender": "Male"
+        }
+      ]
+    },
+    {
+      "username": "sd",
+      "email": "sd",
+      "password": "sd",
+      "image": "download.htm",
+      "id": 2,
+      "candidates": [
+        {
+          "fname": "sds",
+          "lname": "dff",
+          "gender": "Male"
+        },
+        {
+          "fname": "sds",
+          "lname": "dfd",
+          "gender": "Female"
+        }
+      ]
+    },
+    {
+      "username": "sd",
+      "email": "df",
+      "password": "dfd",
+      "image": "AADHAR.pdf",
+      "id": 3,
+      "skills": [
+        "1",
+        "4"
+      ],
+      "candidates": [
+        {
+          "fname": "dfd",
+          "lname": "dfd",
+          "gender": "Male"
+        }
+      ]
+    },
+    {
+      "username": "sdf",
+      "email": "sdf",
+      "password": "dsf",
+      "image": "AADHAR.pdf",
+      "id": 4,
+      "skills": [
+        "1",
+        "2"
+      ],
+      "candidates": [
+        {
+          "fname": "dd",
+          "lname": "dfd",
+          "gender": "Male"
         }
       ]
     }

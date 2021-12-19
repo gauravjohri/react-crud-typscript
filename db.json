@@ -2,7 +2,7 @@
   "users": [
     {
       "username": "admin",
-      "email": "admin",
+      "email": "gauravjohri23881@gmail.com",
       "password": "admin@12",
       "image": "AADHAR.pdf",
       "id": 1,
@@ -14,19 +14,14 @@
       ],
       "candidates": [
         {
-          "fname": "Sohan",
-          "lname": "Parsad",
-          "gender": "Male"
+          "fname": "sds1",
+          "lname": "sdsd",
+          "gender": ""
         },
         {
-          "fname": "Rohan",
-          "lname": "Sharma",
-          "gender": "Female"
-        },
-        {
-          "fname": "dsds",
-          "lname": "sds",
-          "gender": "Male"
+          "fname": "sdsd1",
+          "lname": "ssssss",
+          "gender": ""
         }
       ]
     },
@@ -47,6 +42,12 @@
           "lname": "dfd",
           "gender": "Female"
         }
+      ],
+      "skills": [
+        "1",
+        "2",
+        "3",
+        "4"
       ]
     },
     {

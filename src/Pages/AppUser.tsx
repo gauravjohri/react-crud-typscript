@@ -85,11 +85,36 @@ export const AppUser = () => {
     }
 
     useEffect(() => {
+        let arr: any = `aaskkkkkkkabssssb`.toString().split("");
+        let c: any = [];
+        let d = 0;
+        for (let i = 0; i < arr.length; i++) {
+            let k = 0;
+            for (let j = i; j < arr.length; j++) {
+
+                if (arr[i] === arr[j]) {
+                    k++;
+                }
+            }
+            if (k > 1) {
+
+                c.push({ count: k, letter: arr[i] });
+            }
+        }
+        console.log(c);
+        let yy = [];
+        let cc = c.map((elem: any) => {
+            return elem.count;
+        })
+        console.log(arr[cc.indexOf(Math.max(...cc))]);
+
+
         getUserList();
     }, [])
 
     return (
         <div>
+
             <Button onClick={() => setDialogAdd(true)}>Add New USer</Button>
             <table>
                 <thead>
@@ -140,7 +165,6 @@ export const AppUser = () => {
                             <option>4</option>
                         </select>
                         <TextField type={`file`} name="image" onChange={handleFileChange} /><br />
-                        <button type="button" onClick={handleAddMore}>Add More</button>
                         <Typography variant="h5" component={`div`}>Passengers</Typography>
                         {addMore.map((element: any, index: number) => (
                             <div key={index}>
@@ -153,10 +177,10 @@ export const AppUser = () => {
                                     <option>Female</option>
                                     <option>Other</option>
                                 </select><br />
-                                {index > 0 && <button type="button" onClick={() => handleRemoveAddMore(index)}>Remove</button>}
+                                {<button type="button" onClick={() => handleRemoveAddMore(index)}>Remove</button>}
                             </div>
                         ))}
-
+                        <button type="button" onClick={handleAddMore}>Add More</button>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => setDialog(false)}>Cancel</Button>
